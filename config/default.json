@@ -1,0 +1,3 @@
+{
+  "mongoURI": "mongodb+srv://mergorgec:mergorgec@socialnetwork-5bjss.mongodb.net/test?retryWrites=true&w=majority"
+}
