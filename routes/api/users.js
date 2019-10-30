@@ -20,6 +20,12 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
+
+    // See if user exists
+    // Get users gravatar
+    // Encrypt password
+    // return JWT
+
     res.send('User route');
   },
 );
