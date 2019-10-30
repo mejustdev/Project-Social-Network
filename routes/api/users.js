@@ -70,6 +70,10 @@ router.post(
         if (err) throw err;
         res.json({ token });
       });
+
+      // we can register a user and we can get web token back has the userid payload.
+      // now we can send that token back to authenticate and access protected routes.
+      // and we are creating custom middleware
     } catch (err) {
       console.error(err.message);
       res.status(500).send('Server error');
