@@ -16,8 +16,8 @@ module.exports = function(req, res, next) {
     // take req object and assign value to user
     req.user = decoded.user;
     // user comes from payload
-    console.log(req.user);
-    console.log(decoded.user);
+    // console.log(req.user);
+    // console.log(decoded.user);
     // { id: '5db92b4c89c26b399ca4be73' }
     // { id: '5db92b4c89c26b399ca4be73' }
     next();
