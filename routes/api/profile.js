@@ -22,7 +22,7 @@ router.get('/me', auth, async (req, res) => {
     if (!profile) {
       return res.status(400).json({ msg: 'There is no profile for this user' });
     }
-    res.json(user);
+    res.json(profile);
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
@@ -41,7 +41,7 @@ router.post(
       check('status', 'Status is required')
         .not()
         .isEmpty(),
-      check('skills', 'Skills is required')
+      check('skills', 'Skills are required')
         .not()
         .isEmpty(),
     ],
@@ -100,7 +100,7 @@ router.post(
           { $set: profileFields },
           { new: true },
         );
-        return res.json(Profile);
+        return res.json(profile);
       }
       // Create
       profile = new Profile(profileFields);
