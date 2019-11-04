@@ -14,6 +14,7 @@ const config = require('config');
 
 router.get('/me', auth, async (req, res) => {
   try {
+    // { user: req.user.id } user: defined in Profile model.
     const profile = await Profile.findOne({ user: req.user.id }).populate('user', [
       'name',
       'avatar',
