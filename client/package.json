@@ -36,5 +36,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "http://localhost:5000",
+  "comments": {
+    "proxy": "instead od writing axios.get(http://) we are able to use axios.get(/api/profile)"
+  }
 }
