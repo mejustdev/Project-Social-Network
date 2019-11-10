@@ -25,6 +25,7 @@ const App = () => {
         <Fragment>
           <Navbar />
           <Switch>
+            {/* We have not defined Landing component inside Routes component. Because we want everything should be centered inside container class except Landing page. Landing will be cover whole page */}
             <Route exact path='/' component={Landing} />
             <Route component={Routes} />
           </Switch>

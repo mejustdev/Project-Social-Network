@@ -16,7 +16,7 @@ Alert.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  alerts: state.alert,
+  alerts: state.alert, // We reached this state from rootReducer(index.js) So we added mapStateToProps.
 });
 
 export default connect(mapStateToProps)(Alert);

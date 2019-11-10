@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
+
 function Login({ login, isAuthenticated }) {
   const [formData, setFormData] = useState({
     email: '',
@@ -17,7 +18,7 @@ function Login({ login, isAuthenticated }) {
   };
 
   // Redirect if logged in
-
+  // https://tylermcginnis.com/react-router-programmatically-navigate/
   if (isAuthenticated) {
     return <Redirect to='/dashboard' />;
   }
@@ -59,7 +60,7 @@ function Login({ login, isAuthenticated }) {
   );
 }
 
-login.propTypes = {
+Login.propTypes = {
   login: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool,
 };

@@ -25,7 +25,7 @@ export default function(state = initialState, action) {
     case UPDATE_PROFILE:
       return {
         ...state,
-        profile: payload,
+        profile: payload, // payload --> we got response which include whole profile
         loading: false,
       };
     case GET_PROFILES:

@@ -11,14 +11,15 @@ import {
   GET_REPOS,
 } from './types';
 
-// Get current users profile
+// Get current/logged in user profile
+// it will give us token who logged in.
 export const getCurrentProfile = () => async dispatch => {
   try {
     const res = await axios.get('/api/profile/me');
     // console.log(res);
     dispatch({
       type: GET_PROFILE,
-      payload: res.data,
+      payload: res.data, // res.data is whole profile. see in console.log
     });
   } catch (err) {
     dispatch({

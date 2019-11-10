@@ -18,7 +18,7 @@ function Register({ setAlert, register, isAuthenticated }) {
   const onSubmit = async e => {
     e.preventDefault();
     if (password !== password2) {
-      setAlert('passwords do not match', 'danger');
+      setAlert('passwords do not match', 'danger'); // danger is alertType. in css we have lots of alert classes.So we specify here
     } else {
       register({
         name,
