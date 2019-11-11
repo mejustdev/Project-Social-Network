@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const config = require('config');
 
-module.exports = function(req, res, next) {
+module.exports = async function(req, res, next) {
   // Get token from header
   const token = req.header('x-auth-token');
 
@@ -12,17 +12,16 @@ module.exports = function(req, res, next) {
   }
   // Verify token
   try {
-    const decoded = jwt.verify(token, config.get('jwtSecret'));
-    // take req object and assign value to user
-    req.user = decoded.user;
-    // user comes from payload
-    // console.log(req.user);
-    // console.log(decoded.user);
-    // { id: '5db92b4c89c26b399ca4be73' }
-    // { id: '5db92b4c89c26b399ca4be73' }
-    next();
+    await jwt.verify(token, config.get('jwtSecret'), (error, decoded) => {
+      if (error) {
+        res.status(401).json({ msg: 'Token is not valid' });
+      } else {
+        req.user = decoded.user;
+        next();
+      }
+    });
   } catch (err) {
-    // If there is a token but is not valid
-    res.status(401).json({ msg: 'Token is not valid' });
+    console.error('something wrong with auth middleware');
+    res.status(500).json({ msg: 'Server Error' });
   }
 };
