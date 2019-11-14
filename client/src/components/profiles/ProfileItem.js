@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const ProfileItem = ({
   profile: {
-    user: { _id, name, avatar },
+    user: { _id, name, avatar }, // we can reach this collection since we populated profile with user in backend
     status,
     company,
     location,
