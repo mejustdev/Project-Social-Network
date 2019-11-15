@@ -51,6 +51,8 @@ const PostItem = ({
 );
 
 // https://blog.bitsrc.io/understanding-react-default-props-5c50401ed37d
+// We created showActions to use PostItem component for the post/Post.js
+// By default it is true and we will see content when it is true
 PostItem.defaultProps = {
   showActions: true,
 };

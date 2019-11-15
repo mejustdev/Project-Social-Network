@@ -11,7 +11,7 @@ import CommentItem from '../post/CommentItem';
 const Post = ({ getPost, post: { post, loading }, match }) => {
   useEffect(() => {
     getPost(match.params.id);
-  }, [getPost, match.params.id]);
+  }, [getPost, match.params.id]); // we got id from url props.match
   return loading || post === null ? (
     <Spinner />
   ) : (
@@ -38,7 +38,4 @@ Post.propTypes = {
 const mapStateToProps = state => ({
   post: state.post,
 });
-export default connect(
-  mapStateToProps,
-  { getPost },
-)(Post);
+export default connect(mapStateToProps, { getPost })(Post);

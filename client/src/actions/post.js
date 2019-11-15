@@ -33,7 +33,7 @@ export const addLike = id => async dispatch => {
     const res = await axios.put(`/api/posts/like/${id}`);
     dispatch({
       type: UPDATE_LIKES,
-      payload: { id, likes: res.data },
+      payload: { id, likes: res.data }, // id -->post._id we passed from PostItem component.
     });
   } catch (err) {
     dispatch({
