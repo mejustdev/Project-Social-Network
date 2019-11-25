@@ -22,6 +22,7 @@ router.post(
     check('password', 'Please enter a password with 6 or more characters').isLength({ min: 6 }),
   ],
   async (req, res) => {
+    // https://express-validator.github.io/docs/validation-result-api.html
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
@@ -36,6 +37,7 @@ router.post(
       if (user) {
         return res.status(400).json({ errors: [{ msg: 'User already exists' }] });
       }
+
       // Get users gravatar
 
       const avatar = gravatar.url(email, {
@@ -58,15 +60,15 @@ router.post(
       user.password = await bcrypt.hash(password, salt);
 
       await user.save();
-
+      console.log(user);
       // return JWT
       const payload = {
         user: {
-          id: user.id,
+          id: user.id, // MongoDb uses _id but mongoose use abstraction. only id
         },
       };
 
-      jwt.sign(payload, config.get('jwtSecret'), { expiresIn: 360000 }, (err, token) => {
+      jwt.sign(payload, config.get('jwtSecret'), { expiresIn: 3600 }, (err, token) => {
         if (err) throw err;
         res.json({ token });
       });
