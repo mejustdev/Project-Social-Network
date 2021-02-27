@@ -41,12 +41,8 @@ router.post(
   [
     auth,
     [
-      check('status', 'Status is required')
-        .not()
-        .isEmpty(),
-      check('skills', 'Skills are required')
-        .not()
-        .isEmpty(),
+      check('status', 'Status is required').not().isEmpty(),
+      check('skills', 'Skills are required').not().isEmpty(),
     ],
   ],
   async (req, res) => {
@@ -82,7 +78,7 @@ router.post(
     if (status) profileFields.status = status;
     if (githubusername) profileFields.githubusername = githubusername;
     if (skills) {
-      profileFields.skills = skills.split(',').map(skill => skill.trim());
+      profileFields.skills = skills.split(',').map((skill) => skill.trim());
     }
 
     // Build social object
@@ -179,15 +175,9 @@ router.put(
   [
     auth,
     [
-      check('title', 'Title is required')
-        .not()
-        .isEmpty(),
-      check('company', 'Company is required')
-        .not()
-        .isEmpty(),
-      check('from', 'From date is required')
-        .not()
-        .isEmpty(),
+      check('title', 'Title is required').not().isEmpty(),
+      check('company', 'Company is required').not().isEmpty(),
+      check('from', 'From date is required').not().isEmpty(),
     ],
   ],
   async (req, res) => {
@@ -221,7 +211,7 @@ router.delete('/experience/:exp_id', auth, async (req, res) => {
     const profile = await Profile.findOne({ user: req.user.id });
 
     // Get the remove index
-    const removeIndex = profile.experience.map(item => item.id).indexOf(req.params.exp_id);
+    const removeIndex = profile.experience.map((item) => item.id).indexOf(req.params.exp_id);
     profile.experience.splice(removeIndex, 1);
     await profile.save();
     res.json(profile);
@@ -240,15 +230,9 @@ router.put(
   [
     auth,
     [
-      check('school', 'School is required')
-        .not()
-        .isEmpty(),
-      check('degree', 'Degree is required')
-        .not()
-        .isEmpty(),
-      check('fieldofstudy', 'Field of study is required')
-        .not()
-        .isEmpty(),
+      check('school', 'School is required').not().isEmpty(),
+      check('degree', 'Degree is required').not().isEmpty(),
+      check('fieldofstudy', 'Field of study is required').not().isEmpty(),
     ],
   ],
   async (req, res) => {
@@ -282,7 +266,7 @@ router.delete('/education/:edu_id', auth, async (req, res) => {
     const profile = await Profile.findOne({ user: req.user.id });
 
     // Get the remove index
-    const removeIndex = profile.education.map(item => item.id).indexOf(req.params.edu_id);
+    const removeIndex = profile.education.map((item) => item.id).indexOf(req.params.edu_id);
     profile.education.splice(removeIndex, 1);
     await profile.save();
     res.json(profile);
@@ -298,13 +282,14 @@ router.delete('/education/:edu_id', auth, async (req, res) => {
 router.get('/github/:username', (req, res) => {
   try {
     const options = {
-      uri: `https://api.github.com/users/${
-        req.params.username
-      }/repos?per_page=5&sort=created:asc&client_id=${config.get(
-        'githubClientId',
-      )}&client_secret=${config.get('githubSecret')}`,
+      uri: encodeURI(
+        `https://api.github.com/users/${req.params.username}/repos?per_page=5&sort=created:asc`,
+      ),
       method: 'GET',
-      headers: { 'user-agent': 'node.js' },
+      headers: {
+        'user-agent': 'node.js',
+        Authorization: `token ${config.get('githubToken')}`,
+      },
     };
 
     request(options, (error, response, body) => {
