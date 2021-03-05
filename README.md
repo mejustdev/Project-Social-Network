@@ -170,8 +170,6 @@ Once merged you can push to heroku as above and your site will rebuild and be up
   <img src="static/add-education.png" width="100" />
   <img src="static/developers.png" width="100" />
   <img src="static/posts.png" width="100" />
-</p>
-<p float="left">
   <img src="static/profile.png" width="100" />
   <img src="static/dashboard.png" width="100" /> 
 </p>
