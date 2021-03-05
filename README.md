@@ -194,7 +194,7 @@ branch. Pull requests are warmly welcome."
 
 ## Links
 
-- Project homepage: https://react-social-dev.herokuapp.com/
+- Project homepage: https://net-werk.herokuapp.com/
 - Repository: https://github.com/mejustdev/Project-Social-Network
 - Issue tracker: https://github.com/mejustdev/Project-Social-Network/issues
   - In case of sensitive bugs like security vulnerabilities, please contact
