@@ -202,8 +202,6 @@ branch. Pull requests are warmly welcome."
   - In case of sensitive bugs like security vulnerabilities, please contact
     mejustdev@gmail.com directly instead of using issue tracker. I value your effort
     to improve the security and privacy of this project!
-- Related projects:
-  <!-- - Same project deployed to Heroku: https://react-next-e-commerce.herokuapp.com/ -->
 
 ## Licensing
 
