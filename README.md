@@ -8,6 +8,15 @@ Developer Connector
 
 > Best practices to learn React - Redux - Node.js.
 
+## Table of contents
+
+- [Initial Configuration](#initial-configuration)
+- [Developing](#developing)
+- [Deploying / Publishing](#deploying-/-publishing)
+- [Features](#features)
+- [Covered Topics](#covered-topics)
+- [Links](#links)
+
 ### Initial Configuration
 
 1. Database
@@ -24,10 +33,10 @@ This is for listing user's repos. Follow these [instructions](https://docs.githu
 
 - Make sure you have installed `Node.js` and `npm`.
 
-## Developing
+### Developing
 
 ```shell
-git clone https://github.com/mejustdev/nextcom
+git clone https://github.com/mejustdev/Project-Social-Network.git
 cd Project-Social-Network
 
 # Install server dependencies
@@ -38,8 +47,6 @@ npm install
 
 cd client
 npm install
-
-
 ```
 
 Create `default.json` file in config folder and paste your credentials.
@@ -56,7 +63,7 @@ Create `default.json` file in config folder and paste your credentials.
 }
 ```
 
-### Running on Development Mode
+#### Running on Development Mode
 
 ```
 # Run both Express & React from
@@ -64,7 +71,7 @@ Create `default.json` file in config folder and paste your credentials.
 npm run dev
 ```
 
-### Building
+#### Building
 
 ```
 cd client
@@ -81,7 +88,7 @@ git commit -m "initializing project"
 git push origin main
 ```
 
-### Test production before deploy
+#### Test production before deploy
 
 After running a build in the client 👆, cd into the root of the project.  
 And run...
@@ -101,7 +108,7 @@ node server.js
 
 Check in browser on [http://localhost:5000/](http://localhost:5000/)
 
-### Deploy to Heroku
+#### Deploy to Heroku
 
 ```bash
 git checkout -b production
@@ -156,7 +163,7 @@ git merge main
 
 Once merged you can push to heroku as above and your site will rebuild and be updated.
 
-## Features
+### Features
 
 - Building an **extensive backend API** with Node.js & Express
 - Complete User **Authentication** (Login / Signup)
@@ -174,7 +181,7 @@ Once merged you can push to heroku as above and your site will rebuild and be up
   <img src="static/dashboard.png" width="100" /> 
 </p>
 
-## Covered topics
+### Covered topics
 
 - **React Hooks** throughout the entire App
 - Next.js API Routes
@@ -187,12 +194,12 @@ Once merged you can push to heroku as above and your site will rebuild and be up
 - **Securing private data** with environment variables
 - **Validating Requests** in Node / Express Apps
 
-## Contributing
+### Contributing
 
 "If you'd like to contribute, please fork the repository and use a feature
 branch. Pull requests are warmly welcome."
 
-## Links
+### Links
 
 - Project homepage: https://net-werk.herokuapp.com/
 - Repository: https://github.com/mejustdev/Project-Social-Network
@@ -201,6 +208,6 @@ branch. Pull requests are warmly welcome."
     mejustdev@gmail.com directly instead of using issue tracker. I value your effort
     to improve the security and privacy of this project!
 
-## Licensing
+### Licensing
 
 "The code in this project is licensed under MIT license."
