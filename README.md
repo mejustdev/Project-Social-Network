@@ -32,6 +32,7 @@ This is for listing user's repos. Follow these [instructions](https://docs.githu
 [Heroku](https://www.heroku.com/) account
 
 - Make sure you have installed `Node.js` and `npm`.
+- NOTE: In the rest of the documentation, you will come across npm being used for running commands. To use yarn in place of npm for the commands, simply substitute npm for yarn. Example, npm start as yarn start. For more help, checkout [migrating from npm](https://classic.yarnpkg.com/en/docs/migrating-from-npm/).
 
 ### Developing
 
