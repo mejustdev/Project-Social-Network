@@ -88,7 +88,7 @@ npm run build
 
 ### Deploying / Publishing
 
-Create your repository on Github. Then use Git Flow and finally push it to the remote.
+Create your repository on Github. Then use Git Flow and finally push it to the remote
 
 ```shell
 git add .
@@ -98,7 +98,8 @@ git push origin main
 
 #### Test production before deploy
 
-After running a build in the client 👆, cd into the root of the project.
+After running a build in the client 👆, cd into the root of the project
+
 And run...
 
 Linux/Unix
