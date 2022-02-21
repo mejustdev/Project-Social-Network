@@ -6,7 +6,7 @@ Developer Connector
 
 # Full Stack React MongoDB Express.js Node.js Application
 
-> Best practices to learn React - Redux - Node.js.
+> Best practices to learn React - Redux - Node.js
 
 ## Table of contents
 
