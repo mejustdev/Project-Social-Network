@@ -10,12 +10,20 @@ Developer Connector
 
 ## Table of contents
 
-- [Initial Configuration](#initial-configuration)
-- [Developing](#developing)
-- [Deploying / Publishing](#deploying-/-publishing)
-- [Features](#features)
-- [Covered Topics](#covered-topics)
-- [Links](#links)
+- [Full Stack React MongoDB Express.js Node.js Application](#full-stack-react-mongodb-expressjs-nodejs-application)
+  - [Table of contents](#table-of-contents)
+    - [Initial Configuration](#initial-configuration)
+    - [Developing](#developing)
+      - [Running on Development Mode](#running-on-development-mode)
+      - [Building](#building)
+    - [Deploying / Publishing](#deploying--publishing)
+      - [Test production before deploy](#test-production-before-deploy)
+      - [Deploy to Heroku](#deploy-to-heroku)
+    - [Features](#features)
+    - [Covered topics](#covered-topics)
+    - [Contributing](#contributing)
+    - [Links](#links)
+    - [Licensing](#licensing)
 
 ### Initial Configuration
 
@@ -49,7 +57,7 @@ cd client
 npm install
 ```
 
-Create `default.json` file in config folder and paste your credentials.
+Create `default.json` file in config folder and paste your credentials
 
 > :collision: Do not forget to add this file to the `.gitignore`.
 
@@ -90,7 +98,7 @@ git push origin main
 
 #### Test production before deploy
 
-After running a build in the client 👆, cd into the root of the project.  
+After running a build in the client 👆, cd into the root of the project.
 And run...
 
 Linux/Unix
@@ -153,7 +161,7 @@ git checkout main
 git branch -D production
 ```
 
-Or you can leave it to merge and push updates from another branch.  
+Or you can leave it to merge and push updates from another branch.
 Make any changes you need on your main branch and merge those into your production branch.
 
 ```bash
@@ -178,7 +186,7 @@ Once merged you can push to heroku as above and your site will rebuild and be up
   <img src="static/developers.png" width="100" />
   <img src="static/posts.png" width="100" />
   <img src="static/profile.png" width="100" />
-  <img src="static/dashboard.png" width="100" /> 
+  <img src="static/dashboard.png" width="100" />
 </p>
 
 ### Covered topics
