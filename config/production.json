@@ -1,6 +1,6 @@
 
 {
-  "mongoURI": "mongodb+srv://mergorgec:CD8xZLxJhiXHPami@socialnetwork-5bjss.mongodb.net/test?retryWrites=true&w=majority",
+  "mongoURI": "mongodb+srv://mehmet:jqYzMIcj7aAZiAMR@netwerkapp.2rkv2.mongodb.net/users?retryWrites=true&w=majority",
   "jwtSecret": "mysecrettoken",
   "githubToken": "e353a84119c23c7802b77f1318fd336dc37ce431"
 }
