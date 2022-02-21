@@ -6,16 +6,24 @@ Developer Connector
 
 # Full Stack React MongoDB Express.js Node.js Application
 
-> Best practices to learn React - Redux - Node.js
+> Best practices to learn React - Redux - Node.js.
 
 ## Table of contents
 
-- [Initial Configuration](#initial-configuration)
-- [Developing](#developing)
-- [Deploying / Publishing](#deploying-/-publishing)
-- [Features](#features)
-- [Covered Topics](#covered-topics)
-- [Links](#links)
+- [Full Stack React MongoDB Express.js Node.js Application](#full-stack-react-mongodb-expressjs-nodejs-application)
+  - [Table of contents](#table-of-contents)
+    - [Initial Configuration](#initial-configuration)
+    - [Developing](#developing)
+      - [Running on Development Mode](#running-on-development-mode)
+      - [Building](#building)
+    - [Deploying / Publishing](#deploying--publishing)
+      - [Test production before deploy](#test-production-before-deploy)
+      - [Deploy to Heroku](#deploy-to-heroku)
+    - [Features](#features)
+    - [Covered topics](#covered-topics)
+    - [Contributing](#contributing)
+    - [Links](#links)
+    - [Licensing](#licensing)
 
 ### Initial Configuration
 
@@ -32,7 +40,6 @@ This is for listing user's repos. Follow these [instructions](https://docs.githu
 [Heroku](https://www.heroku.com/) account
 
 - Make sure you have installed `Node.js` and `npm`.
-- NOTE: In the rest of the documentation, you will come across npm being used for running commands. To use yarn in place of npm for the commands, simply substitute npm for yarn. Example, npm start as yarn start. For more help, checkout [migrating from npm](https://classic.yarnpkg.com/en/docs/migrating-from-npm/).
 
 ### Developing
 
@@ -81,7 +88,7 @@ npm run build
 
 ### Deploying / Publishing
 
-Create your repository on Github. Then use Git Flow and finally push it to the remote.
+Create your repository on Github. Then use Git Flow and finally push it to the remote
 
 ```shell
 git add .
@@ -91,7 +98,7 @@ git push origin main
 
 #### Test production before deploy
 
-After running a build in the client 👆, cd into the root of the project.  
+After running a build in the client 👆, cd into the root of the project
 And run...
 
 Linux/Unix
@@ -154,7 +161,7 @@ git checkout main
 git branch -D production
 ```
 
-Or you can leave it to merge and push updates from another branch.  
+Or you can leave it to merge and push updates from another branch.
 Make any changes you need on your main branch and merge those into your production branch.
 
 ```bash
@@ -179,7 +186,7 @@ Once merged you can push to heroku as above and your site will rebuild and be up
   <img src="static/developers.png" width="100" />
   <img src="static/posts.png" width="100" />
   <img src="static/profile.png" width="100" />
-  <img src="static/dashboard.png" width="100" /> 
+  <img src="static/dashboard.png" width="100" />
 </p>
 
 ### Covered topics
