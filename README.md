@@ -125,7 +125,7 @@ git checkout -b production
 
 We can use this branch to deploy from, with our config files.
 
-Add the config file...
+Add the config file
 
 ```bash
 git add -f config/production.json
