@@ -170,7 +170,7 @@ git checkout production
 git merge main
 ```
 
-Once merged you can push to heroku as above and your site will rebuild and be updated.
+Once merged you can push to heroku as above and your site will rebuild and be updated
 
 ### Features
 
