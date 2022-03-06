@@ -163,7 +163,7 @@ git branch -D production
 ```
 
 Or you can leave it to merge and push updates from another branch.
-Make any changes you need on your main branch and merge those into your production branch.
+Make any changes you need on your main branch and merge those into your production branch
 
 ```bash
 git checkout production
