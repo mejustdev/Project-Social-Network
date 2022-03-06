@@ -206,7 +206,7 @@ Once merged you can push to heroku as above and your site will rebuild and be up
 ### Contributing
 
 "If you'd like to contribute, please fork the repository and use a feature
-branch. Pull requests are warmly welcome."
+branch. Pull requests are warmly welcome"
 
 ### Links
 
