@@ -1,24 +1,15 @@
-import { createStore, applyMiddleware } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import thunk from 'redux-thunk';
+import { configureStore } from '@reduxjs/toolkit'
 import rootReducer from './reducers';
 import setAuthToken from './utils/setAuthToken';
 
 const initialState = {};
 
-const middleware = [thunk];
-
-const store = createStore(
-  rootReducer,
+const store = configureStore({
+  reducer: rootReducer,
+  devTools: process.env.NODE_ENV !== 'production',
   initialState,
-  composeWithDevTools(applyMiddleware(...middleware)),
-);
+})
 
-// set up a store subscription listener
-// to store the users token in localStorage
-
-// initialize current state from redux store for subscription comparison
-// preventing undefined error
 let currentState = store.getState();
 
 store.subscribe(() => {
