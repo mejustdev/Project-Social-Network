@@ -16,63 +16,80 @@ const initialState = {
   error: {},
 };
 
-export default function(state = initialState, action) {
-  const { type, payload } = action;
-  switch (type) {
-    case GET_POSTS:
+const getPost = createAction(GET_POST)
+const getPosts = createAction(GET_POSTS)
+const postError = createAction(POST_ERROR)
+const updateLikes = createAction(UPDATE_LIKES)
+const deletePost = createAction(DELETE_POST)
+const addPost = createAction(ADD_POST)
+const addComment = createAction(ADD_COMMENT)
+const removeComment = createAction(REMOVE_COMMENT)
+
+const postReducer = createReducer(initialState, (builder) => {
+
+  builder
+    .addCase(getPosts, (state, action) => {
       return {
         ...state,
-        posts: payload,
+        posts: action.payload,
         loading: false,
       };
-    case GET_POST:
+    })
+    .addCase(getPost, (state, action) => {
       return {
         ...state,
-        post: payload,
+        post: action.payload,
         loading: false,
       };
-    case ADD_POST:
+    })
+    .addCase(addPost, (state, action) => {
       return {
         ...state,
-        posts: [payload, ...state.posts],
+        posts: [action.payload, ...state.posts],
         loading: false,
       };
-    case DELETE_POST:
+    })
+    .addCase(deletePost, (state, action) => {
       return {
         ...state,
-        posts: state.posts.filter(post => post._id !== payload), // payload is id
+        posts: state.posts.filter(post => post._id !== action.payload), // action.payload is id
         loading: false,
       };
-    case POST_ERROR:
+    })
+    .addCase(postError, (state, action) => {
       return {
         ...state,
-        error: payload,
+        error: action.payload,
         loading: false,
       };
-    case UPDATE_LIKES:
+    })
+    .addCase(updateLikes, (state, action) => {
       return {
         ...state,
         posts: state.posts.map(post =>
-          post._id === payload.id ? { ...post, likes: payload.likes } : post,
+          post._id === action.payload.id ? { ...post, likes: action.payload.likes } : post,
         ),
         loading: false,
       };
-    case ADD_COMMENT:
+    })
+    .addCase(addComment, (state, action) => {
       return {
         ...state,
-        post: { ...state.post, comments: payload },
+        post: { ...state.post, comments: action.payload },
         loading: false,
       };
-    case REMOVE_COMMENT:
+    })
+    .addCase(removeComment, (state, action) => {
       return {
         ...state,
         post: {
           ...state.post,
-          comments: state.post.comments.filter(comment => comment._id !== payload),
+          comments: state.post.comments.filter(comment => comment._id !== action.payload),
         },
         loading: false,
       };
-    default:
-      return state;
-  }
-}
+    })
+
+})
+
+export default postReducer;

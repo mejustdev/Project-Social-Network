@@ -1,10 +1,9 @@
+import { createAction, createReducer } from '@reduxjs/toolkit'
 import {
   REGISTER_SUCCESS,
-  //REGISTER_FAIL,
   USER_LOADED,
   AUTH_ERROR,
   LOGIN_SUCCESS,
-  //LOGIN_FAIL,
   LOGOUT,
   ACCOUNT_DELETED,
 } from '../actions/types';
@@ -16,26 +15,41 @@ const initialState = {
   user: null,
 };
 
-function authReducer(state = initialState, action) {
-  const { type, payload } = action;
+const registerSuccess = createAction(REGISTER_SUCCESS)
+const userLoaded = createAction(USER_LOADED)
+const authError = createAction(AUTH_ERROR)
+const loginSuccess = createAction(LOGIN_SUCCESS)
+const logout = createAction(LOGOUT)
+const accountDeleted = createAction(ACCOUNT_DELETED)
 
-  switch (type) {
-    case USER_LOADED:
+const authReducer = createReducer(initialState, (builder) => {
+
+  builder
+    .addCase(userLoaded, (state, action) => {
+     return {
+      ...state,
+      isAuthenticated: true,
+      loading: false,
+      user: action.payload,
+     }
+    })
+    .addCase(registerSuccess, (state, action) => {
       return {
         ...state,
+        ...action.payload,
         isAuthenticated: true,
         loading: false,
-        user: payload,
       };
-    case REGISTER_SUCCESS:
-    case LOGIN_SUCCESS:
+    })
+    .addCase(loginSuccess, (state, action) => {
       return {
         ...state,
-        ...payload,
+        ...action.payload,
         isAuthenticated: true,
         loading: false,
       };
-    case ACCOUNT_DELETED:
+    })
+    .addCase(accountDeleted, (state, action) => {
       return {
         ...state,
         token: null,
@@ -43,8 +57,8 @@ function authReducer(state = initialState, action) {
         loading: false,
         user: null,
       };
-    case AUTH_ERROR:
-    case LOGOUT:
+    })
+    .addCase(authError, (state, action) => {
       return {
         ...state,
         token: null,
@@ -52,9 +66,17 @@ function authReducer(state = initialState, action) {
         loading: false,
         user: null,
       };
-    default:
-      return state;
-  }
-}
+    })
+    .addCase(logout, (state, action) => {
+      return {
+        ...state,
+        token: null,
+        isAuthenticated: false,
+        loading: false,
+        user: null,
+      };
+    })
+
+})
 
 export default authReducer;

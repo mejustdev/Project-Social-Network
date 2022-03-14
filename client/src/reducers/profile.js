@@ -1,3 +1,4 @@
+import { createAction, createReducer } from '@reduxjs/toolkit'
 import {
   GET_PROFILE,
   PROFILE_ERROR,
@@ -17,43 +18,60 @@ const initialState = {
   error: {},
 };
 
-export default function(state = initialState, action) {
-  const { type, payload } = action;
+const getProfile = createAction(GET_PROFILE)
+const updateProfile = createAction(UPDATE_PROFILE)
+const getProfiles = createAction(GET_PROFILES)
+const profileError = createAction(PROFILE_ERROR)
+const clearProfile = createAction(CLEAR_PROFILE)
+const getRepos = createAction(GET_REPOS)
 
-  switch (type) {
-    case GET_PROFILE:
-    case UPDATE_PROFILE:
+const profileReducer = createReducer(initialState, (builder) => {
+
+  builder
+    .addCase(getProfile, (state, action) => {
       return {
         ...state,
-        profile: payload, // payload --> we got response which include whole profile
+        profile: action.payload, // action.payload --> we got response which include whole profile
         loading: false,
       };
-    case GET_PROFILES:
+    })
+    .addCase(updateProfile, (state, action) => {
       return {
         ...state,
-        profiles: payload,
+        profile: action.payload, // action.payload --> we got response which include whole profile
         loading: false,
       };
-    case PROFILE_ERROR:
+    })
+    .addCase(getProfiles, (state, action) => {
       return {
         ...state,
-        error: payload,
+        profiles: action.payload,
         loading: false,
       };
-    case CLEAR_PROFILE:
+    })
+    .addCase(profileError, (state, action) => {
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
+      };
+    })
+    .addCase(clearProfile, (state, action) => {
       return {
         ...state,
         profile: null,
         repos: [],
         loading: false,
       };
-    case GET_REPOS:
+    })
+    .addCase(getRepos, (state, action) => {
       return {
         ...state,
-        repos: payload,
+        repos: action.payload,
         loading: false,
       };
-    default:
-      return state;
-  }
-}
+    })
+
+})
+
+export default profileReducer;
